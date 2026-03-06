@@ -7,61 +7,69 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <style>
+    /* Global Styles */
     body {
         font-family: 'Roboto', sans-serif;
         margin: 0;
-        background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #333;
     }
+    @keyframes gradientBG {
+        0% {background-position:0% 50%;}
+        50% {background-position:100% 50%;}
+        100% {background-position:0% 50%;}
+    }
+
+    /* Header */
     header.animated-header {
         text-align: center;
         padding: 30px 20px;
-        background-color: #1a73e8;
+        background: #ff6a00;
         color: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
-    header.animated-header h1 { margin:0; font-size:2rem; }
-    header.animated-header p { margin:5px 0 15px; }
-    nav { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; padding:15px 0; background-color:#f1f1f1; }
-    nav a { text-decoration:none; color:#333; padding:8px 15px; background-color:#e0e0e0; border-radius:5px; transition:.3s; }
-    nav a:hover { background-color:#1a73e8; color:#fff; }
+    header.animated-header h1 { margin:0; font-size:2.5rem; text-shadow:2px 2px #444; }
+    header.animated-header p { margin:10px 0 15px; font-size:1.1rem; }
 
-    /* Dialogue */
-    .dialogue {
-        background-color: #fff;
-        padding: 40px 30px;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        max-width: 800px;
-        margin: 40px auto;
-        text-align: center;
-        font-size: 1.2rem;
-        line-height: 1.6;
+    /* Navigation */
+    nav { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; padding:15px 0; }
+    nav a { text-decoration:none; color:#fff; padding:10px 18px; background:linear-gradient(45deg,#ff6a00,#ffb347); border-radius:10px; font-weight:bold; transition:.3s; }
+    nav a:hover { transform: scale(1.1); background:linear-gradient(45deg,#ffb347,#ff6a00); }
+
+    /* Extended Description */
+    .extended-description {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 30px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        text-align:center;
     }
-    .dialogue .author { margin-top:15px; font-weight:bold; font-size:1.1rem; color:#444; }
+    .extended-description h2 { font-size:2rem; color:#ff6a00; margin-bottom:15px; }
+    .extended-description p { font-size:1.15rem; line-height:1.6; }
+    .extended-description ul { text-align:left; display:inline-block; margin-top:15px; font-size:1.1rem; }
 
-    /* Home cards */
-    .home-section { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:40px 20px; }
-    .card { background:#fff; padding:25px 20px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.15); text-align:center; width:250px; transition:.3s; }
-    .card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
-    .card h2 { margin-top:0; }
-    .btn { display:inline-block; margin-top:15px; padding:10px 20px; background-color:#1a73e8; color:#fff; text-decoration:none; border-radius:6px; transition:.3s; }
-    .btn:hover { background-color:#155ab6; }
+    /* Home Cards */
+    .home-section { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; padding:40px 20px; }
+    .card { background:linear-gradient(135deg,#f6d365,#fda085); padding:25px 20px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.25); text-align:center; width:260px; transition:.4s; }
+    .card:hover { transform: translateY(-10px) scale(1.05); }
+    .card h2 { margin-top:0; font-size:1.5rem; color:#fff; text-shadow:1px 1px #555; }
+    .card p { color:#fff; font-weight:bold; }
+    .btn { display:inline-block; margin-top:15px; padding:10px 20px; background-color:#ff6a00; color:#fff; text-decoration:none; border-radius:10px; font-weight:bold; transition:.3s; }
+    .btn:hover { background-color:#ffb347; color:#000; }
 
-    /* Ads Section */
-    .ads-section {
-        position: relative;
-        max-width: 800px;
-        margin: 40px auto;
-        height: 180px;
-        overflow: hidden;
-        border-radius: 12px;
-    }
+    /* Animated Ads Section */
+    .ads-section { position: relative; max-width: 800px; margin:40px auto; height:180px; overflow:hidden; border-radius:20px; }
     .ad-card {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background:#fff;
-        border-radius:12px;
-        box-shadow:0 6px 15px rgba(0,0,0,0.15);
+        position:absolute;
+        width:100%;
+        height:100%;
+        background:linear-gradient(135deg,#43cea2,#185a9d);
+        border-radius:20px;
+        color:#fff;
         display:flex;
         flex-direction:column;
         justify-content:center;
@@ -70,48 +78,56 @@
         padding:20px;
         font-size:1.1rem;
         opacity:0;
-        transition: opacity 1s;
+        transition:opacity 1s;
+        font-weight:bold;
     }
     .ad-card.active { opacity:1; }
-
-    .ad-card a {
-        display:inline-block;
-        margin-top:10px;
-        padding:8px 15px;
-        background-color:#ff5722;
-        color:#fff;
-        text-decoration:none;
-        border-radius:6px;
-        transition:0.3s;
-    }
+    .ad-card a { margin-top:12px; padding:8px 15px; background-color:#ff5722; color:#fff; text-decoration:none; border-radius:8px; transition:.3s; }
     .ad-card a:hover { background-color:#e64a19; }
 
     /* Footer & YouTube Button */
     footer {
         text-align:center;
-        padding:20px;
-        background-color:#1a73e8;
+        padding:30px 20px;
+        background:linear-gradient(45deg,#ff6a00,#ffb347);
         color:#fff;
+        border-top:5px solid #fff;
     }
     footer a.youtube-link {
         display:inline-flex;
         align-items:center;
         justify-content:center;
         margin-top:10px;
-        padding:8px 15px;
+        padding:10px 18px;
         background-color:#ff0000;
         color:#fff;
         text-decoration:none;
-        border-radius:6px;
+        border-radius:12px;
         font-weight:bold;
+        font-size:1rem;
         transition:.3s;
     }
-    footer a.youtube-link img {
-        width:20px;
-        height:20px;
-        margin-right:8px;
-    }
+    footer a.youtube-link img { width:24px; height:24px; margin-right:8px; }
     footer a.youtube-link:hover { background-color:#cc0000; }
+
+    /* Dialogue at bottom - smaller size */
+    .dialogue {
+        max-width:800px;
+        margin:50px auto 30px auto;
+        background:rgba(255,255,255,0.85);
+        padding:20px 15px;
+        border-radius:12px;
+        text-align:center;
+        font-size:0.85rem;  /* smaller text */
+        line-height:1.4;
+        box-shadow:0 5px 15px rgba(0,0,0,0.25);
+    }
+    .dialogue .author {
+        margin-top:8px;
+        font-weight:bold;
+        font-size:0.75rem;  /* smaller author */
+        color:#444;
+    }
 </style>
 </head>
 <body>
@@ -119,7 +135,6 @@
 <header class="animated-header">
     <h1>Ultra PCM Study Hub</h1>
     <p>Created by Kush Kumar Kunjam</p>
-    <button id="themeToggle">Dark / Light Mode</button>
 </header>
 
 <nav>
@@ -130,18 +145,18 @@
     <a href="sample-papers.html">Sample Papers</a>
 </nav>
 
-<!-- Dialogue -->
-<div class="dialogue">
-    <p>
-        "I am Kush Kumar, a class 11 student. I may not have much money,  
-        but my dreams are bigger than anyone can imagine.  
-        My circumstances do not define me; they challenge me.  
-        I will turn the impossible into possible with hard work, courage, and persistence.  
-        If your dreams are big and your resources are small, never give up.  
-        True power doesn’t come from wealth—it comes from determination."
-    </p>
-    <div class="author">— Kush Kumar</div>
-</div>
+<!-- Extended Description -->
+<section class="extended-description">
+    <h2>About Ultra PCM Hub</h2>
+    <p>Welcome to Ultra PCM Hub! Created by Kush Kumar, a class 11 student, this platform provides free, colorful, and easy-to-understand resources for students aiming to excel in PCM subjects.</p>
+    <ul>
+        <li>Comprehensive PDFs for Physics, Chemistry, and Maths for Class 11 & 12.</li>
+        <li>Important questions curated for exam preparation.</li>
+        <li>Motivational and educational resources to stay inspired.</li>
+        <li>Tips, apps, and online learning platforms for smart study techniques.</li>
+    </ul>
+    <p>Your dreams are big, and this platform is here to help you achieve them!</p>
+</section>
 
 <!-- Home Cards -->
 <section class="home-section">
@@ -185,11 +200,20 @@
 <!-- Footer -->
 <footer>
     <p>Website by Kush Kumar Kunjam</p>
-    <a href="https://www.youtube.com/@thenataliedawson" target="_blank" class="youtube-link">
+    <a href="https://www.youtube.com/@StrongMindSetBooSter" target="_blank" class="youtube-link">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo">
         Visit My YouTube Channel
     </a>
 </footer>
+
+<!-- Dialogue at Bottom -->
+<div class="dialogue">
+    <p>
+        "I am Kush Kumar, a class 11 student. I may not have much money, but my dreams are huge.  
+        Circumstances don’t define me—they challenge me. With hard work and determination, I will achieve the impossible."
+    </p>
+    <div class="author">— Kush Kumar</div>
+</div>
 
 <script>
     // Rotating ads
