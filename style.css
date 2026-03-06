@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f4f6f9;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #0a3d62, #1e3799);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #f1c40f;
+}
+
+header button#themeToggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #f1c40f;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header button#themeToggle:hover {
+  background: #d4ac0d;
+  color: white;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #0a3d62;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #f1c40f;
+}
+
+/* Sections */
+.home-section, .pdf-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.card {
+  background: white;
+  width: 260px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card h2, .card h3 {
+  color: #1e3799;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #f1c40f;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #d4ac0d;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: #0a3d62;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-section, .pdf-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #1c1c1c;
+  color: #f0f0f0;
+}
+
+body.dark-mode nav {
+  background: #2c2c2c;
+}
+
+body.dark-mode nav a {
+  color: #f1c40f;
+  }
