@@ -4,19 +4,134 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ultra PCM Hub</title>
-<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="script.js" defer></script>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+    }
+    header.animated-header {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: #1a73e8;
+        color: #fff;
+    }
+    header.animated-header h1 { margin:0; font-size:2rem; }
+    header.animated-header p { margin:5px 0 15px; }
+    nav { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; padding:15px 0; background-color:#f1f1f1; }
+    nav a { text-decoration:none; color:#333; padding:8px 15px; background-color:#e0e0e0; border-radius:5px; transition:.3s; }
+    nav a:hover { background-color:#1a73e8; color:#fff; }
+
+    /* Dialogue */
+    .dialogue {
+        background-color: #fff;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        max-width: 800px;
+        margin: 40px auto;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+    .dialogue .author { margin-top:15px; font-weight:bold; font-size:1.1rem; color:#444; }
+
+    /* Home cards */
+    .home-section { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:40px 20px; }
+    .card { background:#fff; padding:25px 20px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.15); text-align:center; width:250px; transition:.3s; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+    .card h2 { margin-top:0; }
+    .btn { display:inline-block; margin-top:15px; padding:10px 20px; background-color:#1a73e8; color:#fff; text-decoration:none; border-radius:6px; transition:.3s; }
+    .btn:hover { background-color:#155ab6; }
+
+    /* Ads Section */
+    .ads-section {
+        position: relative;
+        max-width: 800px;
+        margin: 40px auto;
+        height: 180px;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+    .ad-card {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background:#fff;
+        border-radius:12px;
+        box-shadow:0 6px 15px rgba(0,0,0,0.15);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:20px;
+        font-size:1.1rem;
+        opacity:0;
+        transition: opacity 1s;
+    }
+    .ad-card.active { opacity:1; }
+
+    .ad-card a {
+        display:inline-block;
+        margin-top:10px;
+        padding:8px 15px;
+        background-color:#ff5722;
+        color:#fff;
+        text-decoration:none;
+        border-radius:6px;
+        transition:0.3s;
+    }
+    .ad-card a:hover { background-color:#e64a19; }
+
+    /* Footer & YouTube Button */
+    footer {
+        text-align:center;
+        padding:20px;
+        background-color:#1a73e8;
+        color:#fff;
+    }
+    footer a.youtube-link {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        margin-top:10px;
+        padding:8px 15px;
+        background-color:#ff0000;
+        color:#fff;
+        text-decoration:none;
+        border-radius:6px;
+        font-weight:bold;
+        transition:.3s;
+    }
+    footer a.youtube-link img {
+        width:20px;
+        height:20px;
+        margin-right:8px;
+    }
+    footer a.youtube-link:hover { background-color:#cc0000; }
+</style>
 </head>
 <body>
-    <!-- Your existing header/navbar -->
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
 
-    <!-- Dialogue will go here -->
-    <!-- <<< <div class="dialogue" style="background-color: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); max-width: 800px; margin: 20px auto; text-align: center; line-height: 1.6; font-size: 1.2rem;">
+<header class="animated-header">
+    <h1>Ultra PCM Study Hub</h1>
+    <p>Created by Kush Kumar Kunjam</p>
+    <button id="themeToggle">Dark / Light Mode</button>
+</header>
+
+<nav>
+    <a href="class11.html">Class 11</a>
+    <a href="class12.html">Class 12</a>
+    <a href="class11-important-questions.html">Class11 Important Questions</a>
+    <a href="class12-important-questions.html">Class12 Important Questions</a>
+    <a href="sample-papers.html">Sample Papers</a>
+</nav>
+
+<!-- Dialogue -->
+<div class="dialogue">
     <p>
         "I am Kush Kumar, a class 11 student. I may not have much money,  
         but my dreams are bigger than anyone can imagine.  
@@ -25,51 +140,67 @@
         If your dreams are big and your resources are small, never give up.  
         True power doesn’t come from wealth—it comes from determination."
     </p>
-    <div style="margin-top: 15px; font-weight: bold; font-size: 1.1rem; color: #444;">— Kush Kumar</div>
-</div> >>> -->
+    <div class="author">— Kush Kumar</div>
+</div>
 
-    <!-- Other existing content -->
-    <section>
-        ...
-    </section>
-</body>
-
-<header class="animated-header">
-  <h1>Ultra PCM Study Hub</h1>
-  <p>Created by Kush Kumar Kunjam</p>
-  <button id="themeToggle">Dark / Light Mode</button>
-</header>
-
-<nav>
-  <a href="class11.html">Class 11</a>
-  <a href="class12.html">Class 12</a>
-  <a href="class11-important-questions.html">Class11 important questions</a>a> 
-  <a href="class12-important-questions.html">Class11 important questions</a>a> 
-  <a herf="sample-papers.html">Sample papers</a>
-</nav>
-
+<!-- Home Cards -->
 <section class="home-section">
-  <div class="card" data-anim="slide">
-    <h2>Class 11</h2>
-    <p>Physics, Chemistry, Maths PDFs</p>
-    <a href="class11.html" class="btn">Explore Class 11</a>
-  </div>
-  <div class="card" data-anim="slide">
-    <h2>Class 12</h2>
-    <p>Physics, Chemistry, Maths PDFs</p>
-    <a href="class12.html" class="btn">Explore Class 12</a>
-  </div>
-  <div class="card" data-anim="slide">
-    <h2>Class11 important questions</h2>
-    <p>Ncert, Important, Questions</p>
-    <a href="class11-important-questions.html" class="btn">Open here</a>
-  </div>
-
+    <div class="card">
+        <h2>Class 11</h2>
+        <p>Physics, Chemistry, Maths PDFs</p>
+        <a href="class11.html" class="btn">Explore Class 11</a>
+    </div>
+    <div class="card">
+        <h2>Class 12</h2>
+        <p>Physics, Chemistry, Maths PDFs</p>
+        <a href="class12.html" class="btn">Explore Class 12</a>
+    </div>
+    <div class="card">
+        <h2>Class11 Important Questions</h2>
+        <p>NCERT, Important Questions</p>
+        <a href="class11-important-questions.html" class="btn">Open here</a>
+    </div>
 </section>
 
+<!-- Animated Ads Section -->
+<section class="ads-section">
+    <div class="ad-card active">
+        <h3>Best Online Classes</h3>
+        <a href="https://www.khanacademy.org" target="_blank">Visit Now</a>
+    </div>
+    <div class="ad-card">
+        <h3>Top Study Apps</h3>
+        <a href="https://www.byjus.com" target="_blank">Download</a>
+    </div>
+    <div class="ad-card">
+        <h3>Motivational E-Books</h3>
+        <a href="https://www.gutenberg.org" target="_blank">Read Free</a>
+    </div>
+    <div class="ad-card">
+        <h3>Exam Preparation Tips</h3>
+        <a href="https://www.gradeup.co" target="_blank">Explore</a>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
-  <p>Website by Kush Kumar Kunjam</p>
+    <p>Website by Kush Kumar Kunjam</p>
+    <a href="https://www.youtube.com/@thenataliedawson" target="_blank" class="youtube-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo">
+        Visit My YouTube Channel
+    </a>
 </footer>
 
+<script>
+    // Rotating ads
+    const ads = document.querySelectorAll('.ad-card');
+    let currentAd = 0;
+    setInterval(() => {
+        ads[currentAd].classList.remove('active');
+        currentAd = (currentAd + 1) % ads.length;
+        ads[currentAd].classList.add('active');
+    }, 4000); // change ad every 4 seconds
+</script>
+
 </body>
-</html>
+    </html>
